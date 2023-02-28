@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dream/tool/ColorTable.dart';
 
+import '../Tab/tabs.dart';
+
 class StarPage extends StatefulWidget {
   const StarPage({Key? key}) : super(key: key);
 
@@ -31,10 +33,11 @@ class _StarPageState extends State<StarPage> {
     );
   }
 
+  //pushAndRemoveUntil: 进页面之前删除之前的所有页面
   void _jumpRootPage(){
     _timer!.cancel();
+    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (BuildContext context) => const Tabs()), (route) => false);
   }
-
 
   @override
   Widget build(BuildContext context) {
